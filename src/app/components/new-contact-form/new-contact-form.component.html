@@ -1,0 +1,14 @@
+<form class="new-contact-form" [formGroup]="newContactForm">
+  <app-custom-input
+    class="new-contact-form__field"
+    *ngFor="let field of newContactFormFields"
+    [fieldInfo]="field"
+    [showErrors]="showErrors"
+    [formControlName]="field.control.name"
+  >
+  </app-custom-input>
+
+  <button class="new-contact-form__add-contact-btn" title="Добавить контакт" (click)="addContact()">
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </button>
+</form>

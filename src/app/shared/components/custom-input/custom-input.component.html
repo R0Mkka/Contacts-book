@@ -1,0 +1,30 @@
+<label class="label" [for]="fieldInfo?.id">
+  {{ fieldInfo?.label }}
+</label>
+
+<input
+  #inputRef
+  *ngIf="!fieldInfo.mask; else maskedInput"
+  class="field"
+  [class.error]="showInvalid"
+  [id]="fieldInfo?.id"
+  [type]="fieldInfo?.type"
+  [placeholder]="fieldInfo?.placeholder"
+  [formControl]="formControl"
+  (input)="onChange($event.target.value)"
+>
+
+<ng-template #maskedInput>
+  <input
+    #inputRef
+    class="field"
+    [class.error]="showInvalid"
+    [id]="fieldInfo?.id"
+    [type]="fieldInfo?.type"
+    [placeholder]="fieldInfo?.placeholder"
+    [prefix]="fieldInfo.mask?.prefix"
+    [mask]="fieldInfo.mask?.pattern"
+    [formControl]="formControl"
+    (input)="onChange($event.target.value)"
+  >
+</ng-template>

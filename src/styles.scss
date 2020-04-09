@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import './assets/scss/colors';
+
+@import './assets/css/normalize.css';
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+table, th, td {
+  border-collapse: collapse;
+}
+
+input, button {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
