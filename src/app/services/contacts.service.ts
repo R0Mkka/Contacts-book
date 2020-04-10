@@ -9,7 +9,7 @@ const initialContacts: IContact[] = [
     firstName: 'Контакт',
     lastName: 'Первый',
     patronymic: 'В телефоне',
-    phoneNumber: '111 11 11',
+    phoneNumber: '+7(111)111-11-11',
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const initialContacts: IContact[] = [
     firstName: 'Контакт',
     lastName: 'Второй',
     patronymic: 'В телефоне',
-    phoneNumber: '222 22 22',
+    phoneNumber: '+7(222)222-22-22',
   },
 ];
 

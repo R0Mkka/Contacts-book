@@ -4,12 +4,12 @@
 
   &.marked {
     fa-icon {
-      color: orange;
+      color: var(--orange);
     }
   }
 }
 
 fa-icon {
-  font-size: 26px;
-  color: gray;
+  font-size: 22px;
+  color: var(--black);
 }

@@ -4,6 +4,7 @@ export interface ICustomField {
   id: string;
   type: string;
   label: string;
+  required: boolean;
   placeholder: string;
   control: {
     name: string;
@@ -11,7 +12,6 @@ export interface ICustomField {
     validators: ValidatorFn[];
   };
   mask?: {
-    prefix: string;
-    pattern: string;
+    pattern: (string | RegExp)[];
   };
 }

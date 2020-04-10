@@ -1,14 +1,18 @@
 <label class="label" [for]="fieldInfo?.id">
   {{ fieldInfo?.label }}
+
+  <div class="label__required-asterisk" *ngIf="fieldInfo?.required" title="Обязательное поле">
+    *
+  </div>
 </label>
 
 <input
-  #inputRef
-  *ngIf="!fieldInfo.mask; else maskedInput"
   class="field"
+  *ngIf="!fieldInfo.mask; else maskedInput"
   [class.error]="showInvalid"
   [id]="fieldInfo?.id"
   [type]="fieldInfo?.type"
+  [required]="fieldInfo?.required"
   [placeholder]="fieldInfo?.placeholder"
   [formControl]="formControl"
   (input)="onChange($event.target.value)"
@@ -16,14 +20,13 @@
 
 <ng-template #maskedInput>
   <input
-    #inputRef
     class="field"
     [class.error]="showInvalid"
     [id]="fieldInfo?.id"
     [type]="fieldInfo?.type"
+    [required]="fieldInfo?.required"
     [placeholder]="fieldInfo?.placeholder"
-    [prefix]="fieldInfo.mask?.prefix"
-    [mask]="fieldInfo.mask?.pattern"
+    [textMask]="{ mask: fieldInfo?.mask?.pattern }"
     [formControl]="formControl"
     (input)="onChange($event.target.value)"
   >

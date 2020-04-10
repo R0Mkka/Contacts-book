@@ -27,8 +27,22 @@ export class ToggleStarComponent implements ControlValueAccessor {
     return this._isMarked;
   }
 
+  @Input()
+  public useTitle = true;
+
   @HostBinding('class.marked')
   public isMarkedClass = false;
+
+  @HostBinding('attr.title')
+  public get title(): string {
+    if (!this.useTitle) {
+      return '';
+    }
+
+    return this.isMarked
+      ? 'Убрать из избранного'
+      : 'Добавить в избранное';
+  }
 
   private _isMarked: boolean;
 

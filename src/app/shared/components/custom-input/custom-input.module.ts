@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgxMaskModule } from 'ngx-mask';
+import { TextMaskModule } from 'angular2-text-mask';
 
 import { CustomInputComponent } from './custom-input.component';
 
@@ -9,7 +9,7 @@ import { CustomInputComponent } from './custom-input.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    NgxMaskModule.forChild(),
+    TextMaskModule,
   ],
   declarations: [
     CustomInputComponent,

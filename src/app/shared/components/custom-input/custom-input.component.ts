@@ -23,9 +23,6 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
   @Input()
   public showErrors = false;
 
-  @ViewChild('inputRef')
-  public inputRef: ElementRef<HTMLInputElement>;
-
   public formControl: FormControl;
 
   public onChange = (value: string) => {};
@@ -40,8 +37,9 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
   }
 
   public writeValue(value: string): void {
-    if (!value && this.inputRef) {
-      this.inputRef.nativeElement.value = '';
+    if (!value) {
+      this.formControl.setValue(null);
+      this.markFormAsTouched();
     }
 
     this.onChange(value);
@@ -55,13 +53,17 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
     this.onTouch = fn;
   }
 
+  private markFormAsTouched(): void {
+    this.formControl.markAsTouched();
+    this.formControl.markAsDirty();
+  }
+
   private initControl(): void {
     this.formControl = new FormControl(
       this.fieldInfo.control.initialValue,
       this.fieldInfo.control.validators,
     );
 
-    this.formControl.markAsTouched();
-    this.formControl.markAsDirty();
+    this.markFormAsTouched();
   }
 }

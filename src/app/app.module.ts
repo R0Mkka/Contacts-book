@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxMaskModule } from 'ngx-mask';
 
 import { CustomInputModule } from './shared/components/custom-input/custom-input.module';
 import { ToggleStarModule } from './shared/components/toggle-star/toggle-star.module';
@@ -20,7 +19,6 @@ import { ContactListComponent } from './components/contact-list/contact-list.com
     ReactiveFormsModule,
     MatTableModule,
     FontAwesomeModule,
-    NgxMaskModule.forRoot(),
     CustomInputModule,
     ToggleStarModule,
   ],

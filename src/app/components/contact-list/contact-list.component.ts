@@ -29,7 +29,7 @@ export class ContactListComponent {
   ];
   public readonly faTrash = faTrash;
 
-  public noContacts(): boolean {
+  public get noContacts(): boolean {
     return this.contactList.length === 0;
   }
 

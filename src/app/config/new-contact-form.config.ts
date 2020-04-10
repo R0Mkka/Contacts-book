@@ -7,6 +7,7 @@ export const NEW_CONTACT_FORM_FIELDS: ICustomField[] = [
     id: 'lastName',
     type: 'text',
     label: 'Фамилия',
+    required: true,
     placeholder: 'Введите фамилию',
     control: {
       name: 'lastName',
@@ -21,12 +22,12 @@ export const NEW_CONTACT_FORM_FIELDS: ICustomField[] = [
     id: 'firstName',
     type: 'text',
     label: 'Имя',
+    required: false,
     placeholder: 'Введите имя',
     control: {
       name: 'firstName',
       initialValue: '',
       validators: [
-        Validators.required,
         Validators.maxLength(20),
       ],
     },
@@ -35,12 +36,12 @@ export const NEW_CONTACT_FORM_FIELDS: ICustomField[] = [
     id: 'patronymic',
     type: 'text',
     label: 'Отчество',
+    required: false,
     placeholder: 'Введите отчество',
     control: {
       name: 'patronymic',
       initialValue: '',
       validators: [
-        Validators.required,
         Validators.maxLength(20),
       ],
     },
@@ -49,18 +50,18 @@ export const NEW_CONTACT_FORM_FIELDS: ICustomField[] = [
     id: 'phoneNumber',
     type: 'text',
     label: 'Телефон',
+    required: true,
     placeholder: 'Введите телефон',
     control: {
       name: 'phoneNumber',
       initialValue: '',
       validators: [
         Validators.required,
-        Validators.minLength(22),
+        Validators.pattern(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/),
       ],
     },
     mask: {
-      prefix: '+7 ',
-      pattern: '(000) 000 - 00 - 00',
+      pattern: ['+', '7', '(', /\d/, /\d/, /\d/, ')', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/],
     },
   },
 ];
